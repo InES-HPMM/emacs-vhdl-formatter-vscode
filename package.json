@@ -1,0 +1,81 @@
+{
+  "name": "emacs-vhdl-formatter-vsode",
+  "displayName": "Emacs VHDL mode - Code formatter",
+  "description": "Format your VHDL code with Emacs",
+  "version": "1.0.0",
+  "publisher": "InES-HPMM",
+  "author": "Thierry Delafontaine",
+  "homepage": "https://github.com/InES-HPMM/emacs-vhdl-formatter-vscode",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/InES-HPMM/emacs-vhdl-formatter-vscode.git"
+  },
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/InES-HPMM/emacs-vhdl-formatter-vscode/issues"
+  },
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "keywords": [
+    "Formatter",
+    "VHDL"
+  ],
+  "categories": [
+    "Formatters"
+  ],
+  "activationEvents": [
+    "onLanguage:vhdl"
+  ],
+  "icon": "icon.png",
+  "main": "./out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile && yarn run lint",
+    "prettier": "prettier --write '**/*.{ts,json,md,yml,js}'",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "eslint": "^8.28.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.1.0",
+    "typescript": "^4.9.3",
+    "@vscode/test-electron": "^2.2.0"
+  },
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Emacs VHDL formatter configuration",
+      "properties": {
+        "emacs-vhdl-formatter.executable.unix": {
+          "type": "string",
+          "default": "emacs",
+          "markdownDescription": "Emacs executable"
+        },
+        "emacs-vhdl-formatter.executable.windows": {
+          "type": "string",
+          "default": "wsl",
+          "markdownDescription": "Emacs executable path on Windows"
+        },
+        "emacs-vhdl-formatter.extraArgs.windows": {
+          "type": "string",
+          "default": "emacs",
+          "markdownDescription": "Additional arguments on Windows separated by spaces"
+        },
+        "emacs-vhdl-formatter.customEval": {
+          "type": "string",
+          "default": "(vhdl-set-style \"IEEE\")",
+          "markdownDescription": "Custom elisp code which gets executed before the document is formatted"
+        }
+      }
+    }
+  }
+}
