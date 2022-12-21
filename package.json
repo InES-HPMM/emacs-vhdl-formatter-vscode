@@ -2,7 +2,7 @@
   "name": "emacs-vhdl-formatter-vsode",
   "displayName": "Emacs VHDL mode - Code formatter",
   "description": "Format your VHDL code with Emacs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "InES-HPMM",
   "author": "Thierry Delafontaine",
   "homepage": "https://github.com/InES-HPMM/emacs-vhdl-formatter-vscode",
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "https://github.com/InES-HPMM/emacs-vhdl-formatter-vscode.git"
   },
-  "license": "GPL-3.0-or-later",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/InES-HPMM/emacs-vhdl-formatter-vscode/issues"
   },
