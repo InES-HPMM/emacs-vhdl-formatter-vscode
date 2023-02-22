@@ -1,0 +1,13 @@
+{
+  "folders": [
+    {
+      "path": "formatTest"
+    }
+  ],
+  "settings": {
+    "editor.defaultFormatter": "ines-hpmm.emacs-vhdl-formatter-vscode",
+    "[vhdl]": {
+      "editor.defaultFormatter": "ines-hpmm.emacs-vhdl-formatter-vsode"
+    }
+  }
+}

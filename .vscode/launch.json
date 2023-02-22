@@ -9,6 +9,7 @@
       "name": "Run Extension",
       "type": "extensionHost",
       "request": "launch",
+      "runtimeExecutable": "${execPath}",
       "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
       "outFiles": ["${workspaceFolder}/out/**/*.js"],
       "preLaunchTask": "${defaultBuildTask}"
@@ -17,12 +18,15 @@
       "name": "Extension Tests",
       "type": "extensionHost",
       "request": "launch",
+      "runtimeExecutable": "${execPath}",
       "args": [
+        "${workspaceFolder}/test-fixtures/test.code-workspace",
+        "--install-extension=rjyoung.vscode-modern-vhdl-support",
         "--extensionDevelopmentPath=${workspaceFolder}",
         "--extensionTestsPath=${workspaceFolder}/out/test/suite/index"
       ],
       "outFiles": ["${workspaceFolder}/out/test/**/*.js"],
-      "preLaunchTask": "${defaultBuildTask}"
+      "preLaunchTask": "npm: pretest"
     }
   ]
 }
