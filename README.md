@@ -5,7 +5,7 @@ Format your VHDL code using emacs.
 ## How it works
 
 Basically, we call emacs in batch mode, hand in the content of the VHDL file
-over stdin and retrieve the formatted code over stdout[.](..md)
+over stdin and retrieve the formatted code over stdout.
 
 ### Custom settings
 
