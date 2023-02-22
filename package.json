@@ -2,7 +2,7 @@
   "name": "emacs-vhdl-formatter-vsode",
   "displayName": "Emacs VHDL mode - Code formatter",
   "description": "Format your VHDL code with Emacs",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "publisher": "InES-HPMM",
   "author": "Thierry Delafontaine <deaa@zhaw.ch>",
   "repository": {
