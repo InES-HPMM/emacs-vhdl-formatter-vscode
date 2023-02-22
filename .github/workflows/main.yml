@@ -53,7 +53,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: ${{ github.ref }}
-          body: See [CHANGELOG](https://github.com/InES-HPMM/zhaw-snippets/blob/main/CHANGELOG.md) for details.
+          body: See [CHANGELOG](https://github.com/InES-HPMM/emacs-vhdl-formatter-vscode/blob/main/CHANGELOG.md) for details.
           draft: false
           prerelease: false
       - name: Upload Release Asset
