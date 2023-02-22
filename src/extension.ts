@@ -4,6 +4,10 @@ import cp = require("child_process");
 export let outputChannel =
   vscode.window.createOutputChannel("emacs-vhdl-format");
 
+export function getEvalLispString(basicOffset: number, customEval: string) {
+  return `(let (vhdl-file-content next-line) (while (setq next-line (ignore-errors (read-from-minibuffer ""))) (setq vhdl-file-content (concat vhdl-file-content next-line "\n"))) (with-temp-buffer (vhdl-mode) ${customEval} (setq vhdl-basic-offset ${basicOffset}) (insert vhdl-file-content) (vhdl-beautify-region (point-min) (point-max)) (princ (buffer-string))))`;
+}
+
 export class EmacsVHDLFormatterDocumentFormattingEditProvider
   implements vscode.DocumentFormattingEditProvider
 {
@@ -50,7 +54,7 @@ export class EmacsVHDLFormatterDocumentFormattingEditProvider
       let arglist = extraArgs.concat([
         "--batch",
         "--eval",
-        `(let (vhdl-file-content next-line) (while (setq next-line (ignore-errors (read-from-minibuffer ""))) (setq vhdl-file-content (concat vhdl-file-content next-line "\n"))) (with-temp-buffer (vhdl-mode) ${customEval} (setq vhdl-basic-offset ${basicOffset}) (insert vhdl-file-content) (vhdl-beautify-region (point-min) (point-max)) (princ (buffer-string))))`,
+        getEvalLispString(basicOffset, customEval),
       ]);
 
       let child = cp.spawn(executable, arglist, {
