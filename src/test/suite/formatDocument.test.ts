@@ -63,21 +63,39 @@ export async function format(workspaceFolderName: string, fileName: string) {
   return { actual: doc.getText(), source: text };
 }
 /**
- * Compare the golden file to the formatted output of the file
+ * Compare the format Document functionality against a golden output directly
+ * from emacs.
  * @param fileName The name of the file
  * @param goldenFileName The name of the golden file
  */
-async function formatSameAsGoldenFile(
+async function formatDocument(
   fileName: string,
   goldenFileName: string
 ) {
-  const { actual, source } = await format("formatTest", fileName);
-  const emacsFormatted = await getText("formatTest", goldenFileName);
+  const { actual, source } = await format("formatDocument", fileName);
+  const emacsFormatted = await getText("formatDocument", goldenFileName);
   assert.equal(actual, emacsFormatted);
 }
 
 suite("Test formatDocument", function () {
   this.timeout(10000);
-  test("VHDL", () =>
-    formatSameAsGoldenFile("stopwatch.vhd", "stopwatch_emacs.vhd"));
+  test("format VHDL", () =>
+    formatDocument("stopwatch.vhd", "stopwatch_emacs.vhd"));
+});
+
+/**
+ * Test if issue #1 is resolved (see https://github.com/InES-HPMM/emacs-vhdl-formatter-vscode/issues/1)
+ * @param fileName The name of the file
+ * @param goldenFileName The name of the golden file
+ */
+async function formatDocumentIssue1(fileName: string, goldenFileName: string) {
+  const { actual, source } = await format("issue1", fileName);
+  const emacsFormatted = await getText("issue1", goldenFileName);
+  assert.equal(actual, emacsFormatted);
+}
+
+suite("Test formatDocument (issue1)", function () {
+  this.timeout(10000);
+  test("issue1", () =>
+    formatDocumentIssue1("stopwatch_crlf.vhd", "stopwatch_crlf_emacs.vhd"));
 });

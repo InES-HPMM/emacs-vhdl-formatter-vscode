@@ -61,7 +61,7 @@ export class EmacsVHDLFormatterDocumentFormattingEditProvider
         cwd: vscode.workspace.rootPath,
       });
 
-      child.stdin.end(document.getText());
+      child.stdin.end(document.getText().replace(/\r\n/gi, "\n"));
       child.stdout.on("data", (chunk) => (stdout += chunk));
       child.stderr.on("data", (chunk) => (stderr += chunk));
 
