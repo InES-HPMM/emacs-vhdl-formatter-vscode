@@ -2,7 +2,7 @@
   "name": "emacs-vhdl-formatter-vsode",
   "displayName": "Emacs VHDL mode - Code formatter",
   "description": "Format your VHDL code with Emacs",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "publisher": "InES-HPMM",
   "author": "Thierry Delafontaine <deaa@zhaw.ch>",
   "repository": {
@@ -29,7 +29,7 @@
   "icon": "icon.png",
   "main": "./out/extension.js",
   "scripts": {
-    "install": "vsce package -o zhaw-snippets-$npm_package_version.vsix",
+    "install": "vsce package -o emacs-vhdl-formatter-vsode-$npm_package_version.vsix",
     "deploy": "vsce publish --yarn",
     "vscode:prepublish": "yarn compile",
     "compile": "tsc -p ./",

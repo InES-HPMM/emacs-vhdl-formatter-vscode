@@ -2,7 +2,14 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v1.1.1](https://github.com/InES-HPMM/emacs-vhdl-formatter-vscode/compare/v1.1.0...v1.1.1)
+
+- fix: prevent the insertion of a new line when formatting files with crlf eol [`#1`](https://github.com/InES-HPMM/emacs-vhdl-formatter-vscode/issues/1)
+- fix: fix link to the changelog in the release body [`05b5726`](https://github.com/InES-HPMM/emacs-vhdl-formatter-vscode/commit/05b5726ab97815e598e6d27b966bbf8153316e00)
+
 #### [v1.1.0](https://github.com/InES-HPMM/emacs-vhdl-formatter-vscode/compare/v1.0.1...v1.1.0)
+
+> 22 February 2023
 
 - test: add a test for the formatDocument task [`12d44e4`](https://github.com/InES-HPMM/emacs-vhdl-formatter-vscode/commit/12d44e40214218bf79adef40e0d1b8d42327178d)
 - chore: update dev dependencies [`74c1524`](https://github.com/InES-HPMM/emacs-vhdl-formatter-vscode/commit/74c1524167621c338694e4243ef4252e0402840c)
